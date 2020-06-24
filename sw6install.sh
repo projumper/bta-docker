@@ -1,10 +1,10 @@
 #!bin/bash
 
-apt-get update
-apt upgrade -y
-DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
-apt-get install -y php7.4
-apt-get install -y git
-apt-get install -y composer
-apt-get install -y mysql-client
-apt-get install -y apache2
+sudo apt-get update
+sudo apt upgrade -y
+sudo DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
+sudo apt-get install -y php7.4
+sudo apt-get install -y git
+sudo apt-get install -y composer
+sudo apt-get install -y mysql-client
+sudo apt-get install -y apache2
