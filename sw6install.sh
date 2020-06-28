@@ -28,6 +28,13 @@ sudo chmod -R 777 var/ public/ config/ /var/www/sw6/
 sudo apt-get install php-intl php-xml php-zip php-apcu php-mbstring php-json php-gd unzip nodejs openssh-server git php-curl curl npm
 sudo npm install -g npm@latest
 
+sudo a2enmod rewrite
+
+# <Directory /var/www/sw6>
+#  AllowOverride All
+# </Directory>
+
+
 #sudo git clone https://github.com/shopware/development.git .
 
 #sudo apt-get install php-intl php-xml php-zip php-apcu php-mbstring php-json php-gd unzip nodejs openssh-server git php-curl curl npm
