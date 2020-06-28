@@ -22,8 +22,11 @@ sudo wget https://www.shopware.com/de/Download/redirect/version/sw6/file/install
 sudo apt install unzip
 sudo unzip install_6.2.2_1592398977.zip 
 
+#docroot anpassen
 
-
+sudo chmod -R 777 var/ public/ config/ /var/www/sw6/
+sudo apt-get install php-intl php-xml php-zip php-apcu php-mbstring php-json php-gd unzip nodejs openssh-server git php-curl curl npm
+sudo npm install -g npm@latest
 
 #sudo git clone https://github.com/shopware/development.git .
 
