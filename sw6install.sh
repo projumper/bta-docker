@@ -3,10 +3,13 @@
 sudo apt-get update
 sudo apt upgrade -y
 sudo DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
-sudo apt-get install -y php7.4
+sudo apt-get install -y php7.2
+
+sudo apt install -y mysql-server apache2
+
 sudo apt-get install -y mysql-client
 sudo apt-get install -y php-pdo-mysql
-sudo apt install -y mysql-server apache2
+
 apt install -y libapache2-mod-php php-cli
 sudo apt install -y composer nodejs npm chromium-browser default-jre-headless git
 sudo apt install -y php-gd php-intl php-iconv php-mbstring php-mysql php-xml php-zip php-json
@@ -15,18 +18,22 @@ sudo apt install -y php-gd php-intl php-iconv php-mbstring php-mysql php-xml php
 
 sudo mkdir /var/www/sw6
 cd /var/www/sw6
+sudo wget https://www.shopware.com/de/Download/redirect/version/sw6/file/install_6.2.2_1592398977.zip
+sudo apt install unzip
+sudo unzip install_6.2.2_1592398977.zip 
 
 
-sudo git clone https://github.com/shopware/development.git .
-
-sudo apt-get update
-sudo apt-get install php-intl php-xml php-zip php-apcu php-mbstring php-json php-gd unzip nodejs openssh-server git php-curl curl npm
-sudo npm install -g npm@latest
 
 
-set -e
+#sudo git clone https://github.com/shopware/development.git .
 
-apt-get update
+#sudo apt-get install php-intl php-xml php-zip php-apcu php-mbstring php-json php-gd unzip nodejs openssh-server git php-curl curl npm
+#sudo npm install -g npm@latest
+
+
+#set -e
+
+#apt-get update
  
 
 
@@ -54,14 +61,14 @@ apt-get update
 #  CHROME_BIN: "chromium-browser"
 #EndOfMessage
 
-git clone --depth=1 https://github.com/shopware/platform.git
-composer install
-npm install -g npm
-npm install in vendor/shopware/platform/src/Administration/Resources/administration/
+#git clone --depth=1 https://github.com/shopware/platform.git
+#composer install
+#npm install -g npm
+#npm install in vendor/shopware/platform/src/Administration/Resources/administration/
 
-./psh.phar init
-./psh.phar administration:init
-./psh.phar administration:build
+#./psh.phar init
+#./psh.phar administration:init
+#./psh.phar administration:build
 
 #usermod -a -G www-data $(whoami)
 #chgrp -R www-data $HOME/shopware-dev
@@ -75,26 +82,25 @@ npm install in vendor/shopware/platform/src/Administration/Resources/administrat
 #echo "127.0.0.1 shopware.test" | tee --append /etc/hosts
 #ln -s $HOME/shopware-dev /var/www/shopware.test
 
-/etc/init.d/apache2 restart
+#/etc/init.d/apache2 restart
 
 #echo "LISTEN 8000
 
-<VirtualHost *:8000>
-    DocumentRoot "/var/www/shopware.test/public"
-    ServerName shopware.test
-    <Directory "/var/www/shopware.test/public">
-        AllowOverride All
-    </Directory>
-</VirtualHost>" > /etc/apache2/sites-available/shopware.test.conf
+#<VirtualHost *:8000>
+#    DocumentRoot "/var/www/shopware.test/public"
+#    ServerName shopware.test
+#    <Directory "/var/www/shopware.test/public">
+#        AllowOverride All
+#    </Directory>
+#</VirtualHost>" > /etc/apache2/sites-available/shopware.test.conf
 
 # enable shopware vhost
-a2ensite shopware.test.conf
+#a2ensite shopware.test.conf
 # disable default vhost
-a2dissite 000-default.conf
+#a2dissite 000-default.conf
 # enable mod_rewrite
-a2enmod rewrite
+#a2enmod rewrite
 # restart apache (changed)
-/etc/init.d/apache2 restart
+#/etc/init.d/apache2 restart
 
-curl http://shopware.test:8000/admin
-
+#curl http://shopware.test:8000/admin
